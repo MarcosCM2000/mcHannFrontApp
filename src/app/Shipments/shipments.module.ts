@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ShipmentsRoutingModule } from './shipments-routing.module';
-import { MaterialModule } from '../material/material.module';
 import { CreateComponent } from './pages/create/create.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
