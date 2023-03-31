@@ -33,7 +33,9 @@ export class HomeComponent implements OnInit {
   ]
   //  @ViewChild(MatTable) table: MatTable<Shipment>;
   dataSource = [...this.shipments];
-  displayedColumns: string[] = ['id', 'date', 'weight', 'length', 'height', 'width'];
+  //TODO: Implement edit & delete functionality
+  //TODO: Implement modal for adding & editing package
+  displayedColumns: string[] = ['id', 'date', 'weight', 'length', 'height', 'width', 'edit', 'delete'];
 
 
   constructor() { }
