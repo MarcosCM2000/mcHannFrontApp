@@ -60,7 +60,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .wrap-login100 {
     width: 500px;
-    height: 450px;
     background: var(--loginFormBackground);
     border-radius: 10px;
     overflow: hidden;

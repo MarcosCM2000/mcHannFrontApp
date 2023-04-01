@@ -1,5 +1,5 @@
 <form [formGroup]="loginForm" class="login100-form" (ngSubmit)="login()">
-    <span class="login100-form-title">LOGIN</span>
+    <span class="login100-form-title">LOG IN</span>
     
     <!-- EMAIL-->
     <mat-form-field class="login100-form-field">
@@ -18,11 +18,11 @@
     </mat-form-field>
 
     <div class="login100-form-field">
-        <button class="login100-form-btn" type="submit" mat-raised-button color="accent" cdkFocusInitial>Login</button>
+        <button class="login100-form-btn" type="submit" mat-raised-button color="accent" cdkFocusInitial>Log in</button>
     </div>
 
     <div class="flex-center margin-spacer">
-        <span class="">¿No tienes cuenta?</span>
-        <a routerLink="/auth/register" class="text">Crear una aquí</a>
+        <span>Don't have an account?</span>
+        <a routerLink="/auth/register" class="text">Sign up here</a>
     </div>
 </form>

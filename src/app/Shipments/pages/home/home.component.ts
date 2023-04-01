@@ -15,7 +15,7 @@ import { SnackBarMessage } from '../../Interfaces/snackBarMessage.interface';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  //TODO: Obtain from server
+  //TODO: Call endpoint for obtaining all packages
   shipments: Shipment[] = [
     {
       id: 1,
