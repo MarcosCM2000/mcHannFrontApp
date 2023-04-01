@@ -3,18 +3,16 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ShipmentsRoutingModule } from './shipments-routing.module';
-import { CreateComponent } from './pages/create/create.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MaterialModule } from '../material/material.module';
-import { CreateShipmentComponent } from './components/create-shipment/create-shipment.component';
+import { ShipmentModalComponent } from './components/shipment-modal/shipment-modal.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 
 
 @NgModule({
   declarations: [
-    CreateComponent,
     HomeComponent,
-    CreateShipmentComponent,
+    ShipmentModalComponent,
     SnackBarComponent
   ],
   imports: [
