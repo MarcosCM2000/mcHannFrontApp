@@ -18,6 +18,11 @@ export class SidebarComponent implements OnInit {
       name: 'Shipments',
       icon: 'receipt',
       route: '/shipments'
+    },
+    {
+      name: 'Logout',
+      icon: 'power_settings_new',
+      route: '/auth'
     }
   ];
 
