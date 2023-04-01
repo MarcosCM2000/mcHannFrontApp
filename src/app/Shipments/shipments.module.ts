@@ -7,13 +7,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { MaterialModule } from '../material/material.module';
 import { ShipmentModalComponent } from './components/shipment-modal/shipment-modal.component';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import { ConfirmActionComponent } from './components/confirm-action/confirm-action.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     ShipmentModalComponent,
-    SnackBarComponent
+    SnackBarComponent,
+    ConfirmActionComponent
   ],
   imports: [
     CommonModule,

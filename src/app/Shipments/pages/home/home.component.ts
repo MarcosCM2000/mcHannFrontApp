@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { ConfirmActionComponent } from '../../components/confirm-action/confirm-action.component';
 import { ShipmentModalComponent } from '../../components/shipment-modal/shipment-modal.component';
 import { SnackBarComponent } from '../../components/snack-bar/snack-bar.component';
 
@@ -41,8 +42,6 @@ export class HomeComponent implements OnInit {
   ]
   //  @ViewChild(MatTable) table: MatTable<Shipment>;
   dataSource = [...this.shipments];
-  //TODO: Implement edit & delete functionality
-  //TODO: Implement modal for adding & editing package
   displayedColumns: string[] = ['date', 'address', 'weight', 'length', 'height', 'width', 'edit', 'delete'];
   durationInSeconds = 3;
 
@@ -92,6 +91,19 @@ export class HomeComponent implements OnInit {
     this.shipments = this.shipments.filter(shipment => shipment.id !== id);
     this.dataSource = [...this.shipments];
     this.openSnackBar({message: 'Package successfully deleted', icon: 'delete'});
+  }
+
+  deleteAllData() {
+    //TODO: Call endpoint for deleting all package table
+    const dialogRef = this.dialog.open(ConfirmActionComponent, { width: '250px' });
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (!result) {
+        return;
+      }
+      this.shipments = [];
+      this.dataSource = [...this.shipments];
+      this.openSnackBar({message: 'All data successfully deleted', icon: 'delete'});
+    });
   }
 
 }
