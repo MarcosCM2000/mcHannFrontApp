@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-//  import { MatTable } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { CreateShipmentComponent } from '../../components/create-shipment/create-shipment.component';
+import { SnackBarComponent } from '../../components/snack-bar/snack-bar.component';
 
 import { Shipment } from '../../Interfaces/shipment.interface';
-import { CreateShipmentComponent } from '../../components/create-shipment/create-shipment.component';
+import { SnackBarMessage } from '../../Interfaces/snackBarMessage.interface';
 
 @Component({
   selector: 'app-home',
@@ -41,16 +44,24 @@ export class HomeComponent implements OnInit {
   //TODO: Implement edit & delete functionality
   //TODO: Implement modal for adding & editing package
   displayedColumns: string[] = ['date', 'address', 'weight', 'length', 'height', 'width', 'edit', 'delete'];
+  durationInSeconds = 3;
 
-
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+  }
+
+  openSnackBar(data: SnackBarMessage) {
+    this.snackBar.openFromComponent(SnackBarComponent, {
+      duration: this.durationInSeconds * 1000,
+      data
+    });
   }
 
   addData() {
     const dialogRef = this.dialog.open(CreateShipmentComponent);
     dialogRef.afterClosed().subscribe((result: Shipment) => {
+      this.openSnackBar({message: 'Package successfully created', icon: 'check_circle'});
       //TODO: Call endpoint for creating package
       this.shipments.push(result);
       this.dataSource = [...this.shipments];

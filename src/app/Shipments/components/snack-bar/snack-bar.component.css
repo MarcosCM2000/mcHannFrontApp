@@ -3,6 +3,9 @@
     justify-content: space-between;
     align-items: center;
 }
-.snackbar-color {
+.snackbar-color__success {
+    color: green;
+}
+.snackbar-color__failure {
     color: hotpink;
 }

@@ -1,4 +1,4 @@
-<div class="content snackbar-color">
+<div [ngClass]="content.icon === 'error' ? 'content snackbar-color__failure' : 'content snackbar-color__success'">
     <span matSnackBarLabel>
         {{ content.message }}
     </span>

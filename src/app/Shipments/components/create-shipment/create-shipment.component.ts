@@ -21,14 +21,14 @@ export class CreateShipmentComponent implements OnInit {
 
   shipmentForm: FormGroup = this.fb.group({
     date: [null, [Validators.required] ],  //value, validators Sincronos, validators Asincronos
-    address: ['', [Validators.required, Validators.minLength(3)] ],
+    address: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)] ],
     weight: [0, [Validators.required, Validators.min(1), Validators.max(50)]],
     length: [0, [Validators.required, Validators.min(1), Validators.max(20)]],
     width: [0, [Validators.required, Validators.min(1), Validators.max(20)]],
     height: [0, [Validators.required, Validators.min(1), Validators.max(20)]],
   })
 
-  durationInSeconds = 50;
+  durationInSeconds = 3;
 
   ngOnInit(): void {
   }
@@ -50,6 +50,7 @@ export class CreateShipmentComponent implements OnInit {
       return;
     }
     const newShipment: Shipment = {
+      id: Math.random(),
       created_at: this.shipmentForm.value.date,
       details: {
         address:  this.shipmentForm.value.address,
