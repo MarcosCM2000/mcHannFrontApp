@@ -17,14 +17,6 @@ export class ShipmentModalComponent implements OnInit {
   durationInSeconds = 3;
   shipmentForm: any;
   isNew: boolean = true;
-  /*shipmentForm: FormGroup = this.fb.group({
-    date: [null, [Validators.required] ],  //value, validators Sincronos, validators Asincronos
-    address: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)] ],
-    weight: [0, [Validators.required, Validators.min(1), Validators.max(50)]],
-    length: [0, [Validators.required, Validators.min(1), Validators.max(20)]],
-    width: [0, [Validators.required, Validators.min(1), Validators.max(20)]],
-    height: [0, [Validators.required, Validators.min(1), Validators.max(20)]],
-  })*/
   
   constructor(
     private dialogRef: MatDialogRef<ShipmentModalComponent>,
