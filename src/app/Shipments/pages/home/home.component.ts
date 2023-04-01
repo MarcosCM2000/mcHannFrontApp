@@ -64,10 +64,10 @@ export class HomeComponent implements OnInit {
       if (!result) {
         return;
       }
-      this.openSnackBar({message: 'Package successfully created', icon: 'check_circle'});
       //TODO: Call endpoint for creating package
       this.shipments.push(result!);
       this.dataSource = [...this.shipments];
+      this.openSnackBar({message: 'Package successfully created', icon: 'check_circle'});
     });
   }
 
@@ -79,16 +79,19 @@ export class HomeComponent implements OnInit {
       if (!result) {
         return;
       }
-      this.openSnackBar({message: 'Package successfully edited', icon: 'update'});
       //TODO: Call endpoint for updating package
       const intexToUpdate = this.shipments.findIndex(shipment => shipment.id === id);
       this.shipments[intexToUpdate] = result!;
       this.dataSource = [...this.shipments];
+      this.openSnackBar({message: 'Package successfully edited', icon: 'update'});
     });
   }
 
-  removeData() {
-
+  removeData(id: number) {
+    //TODO: Call endpoint for deleting package
+    this.shipments = this.shipments.filter(shipment => shipment.id !== id);
+    this.dataSource = [...this.shipments];
+    this.openSnackBar({message: 'Package successfully deleted', icon: 'delete'});
   }
 
 }
