@@ -1,4 +1,103 @@
 /* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
+:root {
+    /*Paleta de colores*/
+    --danger: #FF0000;
+    --disabled: #757575;
+    --backgroundLeft: #f0f8ff;
+    --backgroundRight: #E91E63;
+    --loginFormBackground: #fff;
+}
+html, body { 
+    height: 100%; 
+    
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.gradient-image {
+    background-image: linear-gradient(var(--backgroundLeft), var(--backgroundRight));
+}
+
+.padding-spacer{
+    padding: 10px;
+}
+
+.margin-spacer{
+    margin: 20px;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text {
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+/* [login]*/
+.limiter{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container-login100{
+    width: 100%;  
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.wrap-login100 {
+    width: 500px;
+    background: var(--loginFormBackground);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* [login-form] */
+.login100-form {
+    width: 100%;
+}
+  
+.login100-form-title {
+    display: block;
+    font-size: 39px;
+    color: #333333;
+    line-height: 1.2;
+    text-align: center;
+    margin: 25px;
+}
+.login100-form-field {
+    padding: 20px 70px 10px 50px;
+    width: 80%;
+}
+  
+.login100-form-btn {
+    font-size: 16px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+}
+  
+.login100-form-btn:disabled {
+    background-color: var(--disabled);
+}
+.text-danger {
+    color: var(--danger);
+}

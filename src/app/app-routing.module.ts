@@ -4,14 +4,13 @@ import { ErrorPageComponent } from './Shared/error-page/error-page.component';
 
 const routes: Routes = [
   {
-    path: 'shipments',
-    loadChildren: () => import('./Shipments/shipments.module').then(m => m.ShipmentsModule)
-  },
-  {
     path: 'auth',
     loadChildren: () => import('./Auth/auth.module').then(m => m.AuthModule)
   },
-  
+  {
+    path: 'shipments',
+    loadChildren: () => import('./Shipments/shipments.module').then(m => m.ShipmentsModule)
+  },
   {
     path: 'users',
     loadChildren: () => import('./Users/users.module').then(m => m.UsersModule)
@@ -22,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '404'
+    redirectTo: 'auth'
   }
 ];
 
