@@ -1,7 +1,7 @@
 import { shipmentDetail } from "./shipmentDetail.interface";
 
 export interface Shipment {
-    id: number;
+    id?: number;
     created_at: Date;
     details: shipmentDetail
 }

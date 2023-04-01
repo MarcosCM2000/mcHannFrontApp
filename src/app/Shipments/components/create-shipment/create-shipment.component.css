@@ -3,6 +3,10 @@
     max-width: 500px;
     width: 100%;
 }
+
+.example-form-field {
+    margin-right: 20px;
+}
   
 .example-full-width {
     width: 100%;

@@ -50,8 +50,10 @@ export class HomeComponent implements OnInit {
 
   addData() {
     const dialogRef = this.dialog.open(CreateShipmentComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('success');
+    dialogRef.afterClosed().subscribe((result: Shipment) => {
+      //TODO: Call endpoint for creating package
+      this.shipments.push(result);
+      this.dataSource = [...this.shipments];
     });
   }
 
