@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Shipment } from '../../Interfaces/shipment.interface';
-import { shipmentDetail } from '../../Interfaces/shipmentDetail.interface';
+import { SnackBarMessage } from '../../Interfaces/snackBarMessage.interface';
+import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-create-shipment',
@@ -12,25 +14,41 @@ import { shipmentDetail } from '../../Interfaces/shipmentDetail.interface';
 })
 export class CreateShipmentComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<CreateShipmentComponent>) { }
+  constructor(
+    private dialogRef: MatDialogRef<CreateShipmentComponent>,
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar) { }
 
   shipmentForm: FormGroup = this.fb.group({
     date: [null, [Validators.required] ],  //value, validators Sincronos, validators Asincronos
     address: ['', [Validators.required, Validators.minLength(3)] ],
-    weight: [0, [Validators.required, Validators.min(0), Validators.max(50)]],
-    length: [0, [Validators.required, Validators.min(0), Validators.max(20)]],
-    width: [0, [Validators.required, Validators.min(0), Validators.max(20)]],
-    height: [0, [Validators.required, Validators.min(0), Validators.max(20)]],
+    weight: [0, [Validators.required, Validators.min(1), Validators.max(50)]],
+    length: [0, [Validators.required, Validators.min(1), Validators.max(20)]],
+    width: [0, [Validators.required, Validators.min(1), Validators.max(20)]],
+    height: [0, [Validators.required, Validators.min(1), Validators.max(20)]],
   })
+
+  durationInSeconds = 50;
 
   ngOnInit(): void {
   }
 
+  validateField(field: string){
+    return this.shipmentForm.controls[field].errors && this.shipmentForm.controls[field].touched;
+  }
+
+  openSnackBar(data: SnackBarMessage) {
+    this.snackBar.openFromComponent(SnackBarComponent, {
+      duration: this.durationInSeconds * 1000,
+      data
+    });
+  }
+
   save(): void {
-    /*if (this.shipmentForm.invalid) {
-      this.shipmentForm.markAllAsTouched();
+    if (this.shipmentForm.invalid) {
+      this.openSnackBar({message: 'Please validate all fields.', icon: 'error'});
       return;
-    }*/
+    }
     const newShipment: Shipment = {
       created_at: this.shipmentForm.value.date,
       details: {
@@ -42,6 +60,7 @@ export class CreateShipmentComponent implements OnInit {
       }
 
     }
+    this.shipmentForm.reset();
     this.dialogRef.close(newShipment);
   }
 }

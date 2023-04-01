@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -21,6 +22,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatListModule,
         MatNativeDateModule,
         MatSidenavModule,
+        MatSnackBarModule,
         MatTableModule,
         MatToolbarModule
     ],

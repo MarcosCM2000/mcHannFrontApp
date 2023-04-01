@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
   dataSource = [...this.shipments];
   //TODO: Implement edit & delete functionality
   //TODO: Implement modal for adding & editing package
-  displayedColumns: string[] = ['id', 'date', 'address', 'weight', 'length', 'height', 'width', 'edit', 'delete'];
+  displayedColumns: string[] = ['date', 'address', 'weight', 'length', 'height', 'width', 'edit', 'delete'];
 
 
   constructor(private dialog: MatDialog) { }

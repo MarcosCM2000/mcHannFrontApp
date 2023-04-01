@@ -11,6 +11,10 @@
 .example-full-width {
     width: 100%;
 }
+
+.text-danger {
+    color: red;
+}
   
 td {
     padding-right: 8px;
