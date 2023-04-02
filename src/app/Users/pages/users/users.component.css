@@ -1,0 +1,19 @@
+.container {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    max-width: 400px;
+}
+  
+.card-header-image {
+    background-image: url('./../../../../assets/images/user-icon.jpg');
+    background-size: cover;
+}
+
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
