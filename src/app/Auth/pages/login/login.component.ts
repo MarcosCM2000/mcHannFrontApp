@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   login() {
     //TODO: Call endpoint for log in
     this.router.navigateByUrl('/home');
+
   }
 
 }
