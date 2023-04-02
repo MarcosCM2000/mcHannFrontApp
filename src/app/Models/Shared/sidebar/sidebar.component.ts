@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SidenavOptions } from '../Interfaces/sidenav.interface';
 
 @Component({
-  selector: 'app-sidebar-2',
+  selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
