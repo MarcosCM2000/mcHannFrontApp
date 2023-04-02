@@ -12,12 +12,12 @@ export class SidebarComponent implements OnInit {
     {
       name: 'Users',
       icon: 'account_circle',
-      route: '/users'
+      route: '/home/users'
     },
     {
       name: 'Shipments',
       icon: 'receipt',
-      route: '/shipments'
+      route: '/home/shipments'
     },
     {
       name: 'Logout',

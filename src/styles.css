@@ -13,6 +13,10 @@ html, body {
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.page-container {
+    display: flex;
+}
+
 .gradient-image {
     background-image: linear-gradient(var(--backgroundLeft), var(--backgroundRight));
 }

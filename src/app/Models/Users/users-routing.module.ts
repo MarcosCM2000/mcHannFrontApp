@@ -4,17 +4,7 @@ import { UsersComponent } from './pages/users/users.component';
 
 const routes: Routes = [
   {
-    path: '',
-    children: [
-      {
-        path: 'list',
-        component: UsersComponent
-      },
-      {
-        path: '**',
-        redirectTo: 'list'
-      }
-    ]
+    path: '', component: UsersComponent
   }
 ];
 
