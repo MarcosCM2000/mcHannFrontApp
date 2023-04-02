@@ -1,1 +1,23 @@
-<p>users works!</p>
+<div class="container">
+    <mat-card class="card">
+        <mat-card-header>
+          <div mat-card-avatar class="card-header-image"></div>
+          <mat-card-title>{{userProfile.username}}</mat-card-title>
+          <mat-card-subtitle>{{userProfile.email}}</mat-card-subtitle>
+        </mat-card-header>
+        <div class="card-image">
+            <img mat-card-image src="./../../../../assets/images/user-profile.jpg" alt="Photo of a user">
+        </div>
+        <mat-card-content>
+          <p>
+            In ex id ipsum voluptate pariatur dolore pariatur labore consequat amet deserunt exercitation ad. Mollit in velit est Lorem dolor.
+            Qui veniam esse dolor amet duis aliquip tempor pariatur est Lorem. Tempor Lorem velit enim in veniam consectetur nisi veniam consequat
+            dolore nisi. Ex nostrud velit laboris quis sunt cupidatat. Officia consectetur labore ex aliqua commodo sunt in ad anim eu duis.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button><mat-icon>settings</mat-icon></button>
+          <button mat-button><mat-icon>share</mat-icon></button>
+        </mat-card-actions>
+    </mat-card>
+</div>

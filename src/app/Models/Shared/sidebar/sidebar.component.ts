@@ -10,14 +10,14 @@ export class SidebarComponent implements OnInit {
 
   sidenavList: SidenavOptions[] = [
     {
-      name: 'Users',
-      icon: 'account_circle',
-      route: '/home/users'
-    },
-    {
       name: 'Shipments',
       icon: 'receipt',
       route: '/home/shipments'
+    },
+    {
+      name: 'Settings',
+      icon: 'settings',
+      route: '/home/users'
     },
     {
       name: 'Logout',

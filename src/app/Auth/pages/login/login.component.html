@@ -12,8 +12,11 @@
     <!-- PASSWORD-->
     <mat-form-field class="login100-form-field">
         <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="example@email.com"
+        <input type="{{hide ? 'password' : 'text'}}" matInput placeholder="example@email.com"
         formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
         <span class="text-danger" *ngIf="validateField('password')">Field is required.</span>
     </mat-form-field>
 
