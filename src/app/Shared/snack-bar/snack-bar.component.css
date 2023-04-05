@@ -1,0 +1,17 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.snackbar-color__success {
+    color: green;
+}
+.snackbar-color__edit {
+    color: skyblue;
+}
+.snackbar-color__failure {
+    color: hotpink;
+}
+.snackbar-color__deleted {
+    color: red;
+}
