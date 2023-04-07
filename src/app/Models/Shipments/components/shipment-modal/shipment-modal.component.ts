@@ -4,8 +4,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Shipment } from '../../Interfaces/shipment.interface';
-import { SnackBarMessage } from '../../Interfaces/snackBarMessage.interface';
-import { SnackBarComponent } from '../snack-bar/snack-bar.component';
+import { SnackBarMessage } from '../../../../Shared/Interfaces/snackBarMessage.interface';
+import { SnackBarComponent } from '../../../../Shared/snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-create-shipment',

@@ -4,10 +4,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ConfirmActionComponent } from '../../components/confirm-action/confirm-action.component';
 import { ShipmentModalComponent } from '../../components/shipment-modal/shipment-modal.component';
-import { SnackBarComponent } from '../../components/snack-bar/snack-bar.component';
+import { SnackBarComponent } from '../../../../Shared/snack-bar/snack-bar.component';
 
 import { Shipment } from '../../Interfaces/shipment.interface';
-import { SnackBarMessage } from '../../Interfaces/snackBarMessage.interface';
+import { SnackBarMessage } from '../../../../Shared/Interfaces/snackBarMessage.interface';
 
 @Component({
   selector: 'app-home',
