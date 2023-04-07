@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
 
   navigate(route: string): void {
     if (route === '/auth/login') {
-      this._authService.logout();
+      this._authService.deleteToken();
     }
     this.router.navigateByUrl(route);
   }

@@ -12,6 +12,22 @@ import { AuthResponse } from '../interfaces/authResponse.interface';
 export class AuthService {
 
   private _baseUrl = `${environment.baseUrl}/auth`;
+  private _user!: AuthResponse;
+  private _token: string = '';
+
+  get token() {
+    return this._token;
+  }
+  set token(token: string){
+    this._token = token;
+  }
+
+  get user() {
+    return {...this._user};
+  }
+  set user(user: AuthResponse){
+    this._user = user;
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -21,13 +37,11 @@ export class AuthService {
 
     return this.http.post<AuthResponse>(url, body);
   }
-  saveToken(){
-
+  saveToken(token: string){
+    this.token = token;
+    localStorage.setItem('token', this._token);
   }
   deleteToken(){
-    console.log('222');
-  }
-  logout() {
-    this.deleteToken();
+    localStorage.removeItem('token');
   }
 }

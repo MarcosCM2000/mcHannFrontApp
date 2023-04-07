@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     //TODO: Call endpoint for log in
     this.authService.login(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
     .subscribe(success => {
-      console.log(success);
+      this.authService.saveToken(success.token);
       this.openSnackBar({message: 'Welcome to the application.', icon: 'check_circle'});
       this.router.navigateByUrl('/home');
     }, failure => {
