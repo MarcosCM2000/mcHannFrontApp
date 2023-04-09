@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     //TODO: Call endpoint for log in
+    //this.router.navigateByUrl('/home');
     this.authService.login(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
     .subscribe(success => {
       this.authService.saveToken(success.token);
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('/home');
     }, failure => {
       console.log(failure);
-      this.openSnackBar({message: 'Please validate all fields.', icon: 'error'});
+      this.openSnackBar({message: failure.error.error, icon: 'error'});
     });
 
   }
