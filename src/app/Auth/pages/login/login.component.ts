@@ -38,8 +38,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    //TODO: Call endpoint for log in
-    //this.router.navigateByUrl('/home');
     this.authService.login(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
     .subscribe(success => {
       this.authService.saveToken(success.token);

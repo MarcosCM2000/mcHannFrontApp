@@ -39,7 +39,6 @@ export class RegisterComponent implements OnInit {
   }
 
   signup() {
-    //TODO: Call endpoint for sign up
     this._authService.register(
       this.registerForm.controls['email'].value,
       this.registerForm.controls['name'].value,

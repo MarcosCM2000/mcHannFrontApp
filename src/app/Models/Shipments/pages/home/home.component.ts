@@ -5,9 +5,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmActionComponent } from '../../components/confirm-action/confirm-action.component';
 import { ShipmentModalComponent } from '../../components/shipment-modal/shipment-modal.component';
 import { SnackBarComponent } from '../../../../Shared/snack-bar/snack-bar.component';
+import { ShipmentService } from '../../services/shipment.service';
 
 import { Shipment } from '../../Interfaces/shipment.interface';
 import { SnackBarMessage } from '../../../../Shared/Interfaces/snackBarMessage.interface';
+import { ShipmentResponse } from '../../Interfaces/shipmentResponse.interface';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,7 @@ import { SnackBarMessage } from '../../../../Shared/Interfaces/snackBarMessage.i
 })
 export class HomeComponent implements OnInit {
   //TODO: Call endpoint for obtaining all packages
-  shipments: Shipment[] = [
+  shipments: Shipment[] = [];/*[
     {
       id: 1,
       created_at: new Date('2023 03 20'),
@@ -39,15 +41,16 @@ export class HomeComponent implements OnInit {
         width:  11
       }
     }
-  ]
+  ]*/
   //  @ViewChild(MatTable) table: MatTable<Shipment>;
   dataSource = [...this.shipments];
   displayedColumns: string[] = ['date', 'address', 'weight', 'length', 'height', 'width', 'edit', 'delete'];
   durationInSeconds = 3;
 
-  constructor(private dialog: MatDialog, private snackBar: MatSnackBar) { }
+  constructor(private dialog: MatDialog, private snackBar: MatSnackBar, private shipmentService: ShipmentService ) { }
 
   ngOnInit(): void {
+    this.getShipments();
   }
 
   openSnackBar(data: SnackBarMessage) {
@@ -55,6 +58,17 @@ export class HomeComponent implements OnInit {
       duration: this.durationInSeconds * 1000,
       data
     });
+  }
+
+  getShipments(){
+    this.shipmentService.getShipments()
+    .subscribe(success => {
+      this.shipments = success;
+      this.dataSource = [...this.shipments];
+    }, failure =>{
+      console.log(failure);
+      this.openSnackBar({message: failure.error.error, icon: 'error'});
+    })
   }
 
   addData() {

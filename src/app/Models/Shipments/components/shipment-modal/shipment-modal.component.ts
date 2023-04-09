@@ -27,11 +27,11 @@ export class ShipmentModalComponent implements OnInit {
           this.isNew = false;
           this.shipmentForm = this.fb.group({
           date: [data.created_at, [Validators.required] ],  //value, validators Sincronos, validators Asincronos
-          address: [data.details.address, [Validators.required, Validators.minLength(3), Validators.maxLength(20)] ],
-          weight: [data.details.weight, [Validators.required, Validators.min(1), Validators.max(50)]],
-          length: [data.details.length, [Validators.required, Validators.min(1), Validators.max(20)]],
-          width: [data.details.width, [Validators.required, Validators.min(1), Validators.max(20)]],
-          height: [data.details.height, [Validators.required, Validators.min(1), Validators.max(20)]],
+          address: [data.detail.address, [Validators.required, Validators.minLength(3), Validators.maxLength(20)] ],
+          weight: [data.detail.weight, [Validators.required, Validators.min(1), Validators.max(50)]],
+          length: [data.detail.length, [Validators.required, Validators.min(1), Validators.max(20)]],
+          width: [data.detail.width, [Validators.required, Validators.min(1), Validators.max(20)]],
+          height: [data.detail.height, [Validators.required, Validators.min(1), Validators.max(20)]],
         });
       } else {
         this.isNew = true;
@@ -73,7 +73,7 @@ export class ShipmentModalComponent implements OnInit {
     const shipment: Shipment = {
       id: Math.random(),
       created_at: this.shipmentForm.value.date,
-      details: {
+      detail: {
         address:  this.shipmentForm.value.address,
         weight:   this.shipmentForm.value.weight,
         length:   this.shipmentForm.value.length,
