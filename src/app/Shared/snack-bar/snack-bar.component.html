@@ -1,0 +1,10 @@
+<div [ngClass]="{'content snackbar-color__success': content.icon === 'check_circle', 'content snackbar-color__edit': content.icon === 'update',
+    'content snackbar-color__failure': content.icon === 'error', 'content snackbar-color__deleted': content.icon === 'delete'}">
+    <span matSnackBarLabel>
+        {{ content.message }}
+    </span>
+    <span matSnackBarActions>
+        <button mat-button matSnackBarAction><mat-icon class="">{{content.icon}}</mat-icon></button>
+    </span>
+</div>
+<!-- content.icon === 'error' ? 'content snackbar-color__failure' : 'content snackbar-color__success'-->

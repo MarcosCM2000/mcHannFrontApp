@@ -1,0 +1,7 @@
+.four_zero_four_bg{
+    background-image: linear-gradient(
+        to bottom,
+        rgba(243, 44, 121, 0.349),
+        rgba(186, 186, 204, 0.5)
+      ), url("./../../../assets/images/404.png");
+}

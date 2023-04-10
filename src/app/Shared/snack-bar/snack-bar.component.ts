@@ -1,6 +1,6 @@
-/*  import { Component, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
-import { SnackBarMessage } from '../../../../Shared/Interfaces/snackBarMessage.interface';
+import { SnackBarMessage } from '../Interfaces/snackBarMessage.interface';
 
 @Component({
   selector: 'app-snack-bar',
@@ -12,4 +12,4 @@ export class SnackBarComponent {
   constructor(@Inject(MAT_SNACK_BAR_DATA) public data: SnackBarMessage) { 
     this.content = this.data;
   }
-}*/
+}

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SidenavOptions } from '../Interfaces/sidenav.interface';
+import { AuthService } from 'src/app/Auth/services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -22,13 +24,20 @@ export class SidebarComponent implements OnInit {
     {
       name: 'Logout',
       icon: 'power_settings_new',
-      route: '/auth'
+      route: '/auth/login'
     }
   ];
 
-  constructor() { }
+  constructor(private _authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  navigate(route: string): void {
+    if (route === '/auth/login') {
+      this._authService.deleteToken();
+    }
+    this.router.navigateByUrl(route);
   }
 
 }

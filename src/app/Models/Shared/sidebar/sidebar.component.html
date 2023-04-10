@@ -10,7 +10,7 @@
         <mat-nav-list>
             <mat-list-item *ngFor="let option of sidenavList">
                 <mat-icon matListItemIcon>{{option.icon}}</mat-icon>
-                <a matListItemTitle href={{option.route}}>{{option.name}}</a>
+                <a (click)="navigate(option.route!)" matListItemTitle >{{option.name}}</a>
                 <mat-divider></mat-divider>
             </mat-list-item>
         </mat-nav-list>
