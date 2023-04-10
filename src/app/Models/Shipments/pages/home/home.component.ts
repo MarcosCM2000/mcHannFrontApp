@@ -16,32 +16,7 @@ import { SnackBarMessage } from '../../../../Shared/Interfaces/snackBarMessage.i
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  //TODO: Call endpoint for obtaining all packages
-  shipments: Shipment[] = [];/*[
-    {
-      id: 1,
-      created_at: new Date('2023 03 20'),
-      details: {
-        address: '1600 Amphitheatre Pk',
-        weight: 5,
-        length: 10,
-        height: 10,
-        width:  10
-      }
-    },
-    {
-      id: 2,
-      created_at: new Date('2023 03 21'),
-      details: {
-        address: '1701 Amphitheatre Pk',
-        weight: 6,
-        length: 11,
-        height: 11,
-        width:  11
-      }
-    }
-  ]*/
-  //  @ViewChild(MatTable) table: MatTable<Shipment>;
+  shipments: Shipment[] = [];
   dataSource = [...this.shipments];
   displayedColumns: string[] = ['date', 'address', 'weight', 'length', 'height', 'width', 'edit', 'delete'];
   durationInSeconds = 3;

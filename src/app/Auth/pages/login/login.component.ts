@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
     .subscribe(success => {
+      this.authService.user = success;
       this.authService.saveToken(success.token);
       this.openSnackBar({message: 'Welcome to the application.', icon: 'check_circle'});
       this.router.navigateByUrl('/home');
