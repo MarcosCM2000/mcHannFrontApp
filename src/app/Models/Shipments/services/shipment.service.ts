@@ -29,4 +29,9 @@ export class ShipmentService {
 
     return this.http.patch<Shipment>(url, body);
   }
+  DeleteShipment(body: any): Observable<boolean>{
+    const url = `${this._baseUrl}/delete`;
+
+    return this.http.post<boolean>(url, body);
+  }
 }

@@ -96,7 +96,7 @@ export class HomeComponent implements OnInit {
       }
       result.id = id;
       this.shipmentService.EditShipment(result)
-      .subscribe(success =>{
+      .subscribe(_ =>{
         this.getShipments();
         this.openSnackBar({message: 'Package successfully edited', icon: 'update'});
       }, failure => {
@@ -106,10 +106,20 @@ export class HomeComponent implements OnInit {
   }
 
   removeData(id: number) {
-    //TODO: Call endpoint for deleting package
-    this.shipments = this.shipments.filter(shipment => shipment.id !== id);
-    this.dataSource = [...this.shipments];
-    this.openSnackBar({message: 'Package successfully deleted', icon: 'delete'});
+    const dialogRef = this.dialog.open(ConfirmActionComponent, { width: '250px' });
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (!result) {
+        return;
+      }
+      this.shipmentService.DeleteShipment({id})
+      .subscribe(_ => {
+        this.getShipments();
+        this.openSnackBar({message: 'Package successfully deleted', icon: 'delete'});
+        }, failure => {
+        this.openSnackBar({message: failure.error.error, icon: 'error'});
+        });
+      });
+    ;
   }
 
   deleteAllData() {
