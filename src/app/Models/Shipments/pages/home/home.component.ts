@@ -9,7 +9,6 @@ import { ShipmentService } from '../../services/shipment.service';
 
 import { Shipment } from '../../Interfaces/shipment.interface';
 import { SnackBarMessage } from '../../../../Shared/Interfaces/snackBarMessage.interface';
-import { ShipmentResponse } from '../../Interfaces/shipmentResponse.interface';
 
 @Component({
   selector: 'app-home',
@@ -61,7 +60,7 @@ export class HomeComponent implements OnInit {
   }
 
   getShipments(){
-    this.shipmentService.getShipments()
+    this.shipmentService.GetAllShipments()
     .subscribe(success => {
       this.shipments = success;
       this.dataSource = [...this.shipments];
@@ -77,10 +76,13 @@ export class HomeComponent implements OnInit {
       if (!result) {
         return;
       }
-      //TODO: Call endpoint for creating package
-      this.shipments.push(result!);
-      this.dataSource = [...this.shipments];
-      this.openSnackBar({message: 'Package successfully created', icon: 'check_circle'});
+      this.shipmentService.CreateShipment(result)
+      .subscribe(_ => {
+        this.getShipments();
+        this.openSnackBar({message: 'Package successfully created', icon: 'check_circle'});
+      }, failure => {
+        this.openSnackBar({message: failure.error.error, icon: 'error'});
+      });
     });
   }
 

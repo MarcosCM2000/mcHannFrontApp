@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { Shipment } from '../Interfaces/shipment.interface';
-import { ShipmentResponse } from '../Interfaces/shipmentResponse.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +14,14 @@ export class ShipmentService {
 
   constructor(private http: HttpClient) { }
 
-  getShipments(): Observable<Shipment[]>  {
+  GetAllShipments(): Observable<Shipment[]>  {
     const url = `${this._baseUrl}/all`;
 
     return this.http.get<Shipment[]>(url);
+  }
+  CreateShipment(body: Shipment): Observable<Shipment> {
+    const url = `${this._baseUrl}/add`;
+
+    return this.http.post<Shipment>(url, body);
   }
 }
