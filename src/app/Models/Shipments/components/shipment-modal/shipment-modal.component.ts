@@ -28,7 +28,7 @@ export class ShipmentModalComponent implements OnInit {
       if (data) {
           this.isNew = false;
           this.shipmentForm = this.fb.group({
-          date: [data.created_at, [Validators.required] ],  //value, validators Sincronos, validators Asincronos
+          date: [data.createdAt, [Validators.required] ],  //value, validators Sincronos, validators Asincronos
           address: [data.detail.address, [Validators.required, Validators.minLength(3), Validators.maxLength(20)] ],
           weight: [data.detail.weight, [Validators.required, Validators.min(1), Validators.max(50)]],
           length: [data.detail.length, [Validators.required, Validators.min(1), Validators.max(20)]],
@@ -74,7 +74,7 @@ export class ShipmentModalComponent implements OnInit {
     //  const formatedDate = this.datePipe.transform(this.shipmentForm.controls['date'].value, 'dd/MM/yyyy');
     const shipment: Shipment = {
       id: Math.random(),
-      created_at: this.shipmentForm.value.date,
+      createdAt: this.shipmentForm.value.date,
       detail: {
         address:  this.shipmentForm.value.address,
         weight:   this.shipmentForm.value.weight,

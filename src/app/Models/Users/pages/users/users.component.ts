@@ -9,7 +9,6 @@ import { AuthService } from 'src/app/Auth/services/auth.service';
 })
 export class UsersComponent implements OnInit {
 
-  //TODO: Call endpoint for obtaining user info
   userProfile: user = {
     username: '',
     email: '',
