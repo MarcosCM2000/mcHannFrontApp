@@ -123,15 +123,18 @@ export class HomeComponent implements OnInit {
   }
 
   deleteAllData() {
-    //TODO: Call endpoint for deleting all package table
     const dialogRef = this.dialog.open(ConfirmActionComponent, { width: '250px' });
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (!result) {
         return;
       }
-      this.shipments = [];
-      this.dataSource = [...this.shipments];
-      this.openSnackBar({message: 'All data successfully deleted', icon: 'delete'});
+      this.shipmentService.DeleteAllShipments()
+      .subscribe(_ => {
+        this.getShipments();
+        this.openSnackBar({message: 'All data successfully deleted', icon: 'delete'});
+        }, failure => {
+        this.openSnackBar({message: failure.error.error, icon: 'error'});
+      });
     });
   }
 

@@ -34,4 +34,9 @@ export class ShipmentService {
 
     return this.http.post<boolean>(url, body);
   }
+  DeleteAllShipments(): Observable<boolean>{
+    const url = `${this._baseUrl}/delete-all`;
+
+    return this.http.post<boolean>(url, {});
+  }
 }
