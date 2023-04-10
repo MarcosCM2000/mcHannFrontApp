@@ -24,4 +24,9 @@ export class ShipmentService {
 
     return this.http.post<Shipment>(url, body);
   }
+  EditShipment(body: Shipment): Observable<Shipment> {
+    const url = `${this._baseUrl}/edit`;
+
+    return this.http.patch<Shipment>(url, body);
+  }
 }

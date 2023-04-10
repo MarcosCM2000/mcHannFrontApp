@@ -94,11 +94,14 @@ export class HomeComponent implements OnInit {
       if (!result) {
         return;
       }
-      //TODO: Call endpoint for updating package
-      const intexToUpdate = this.shipments.findIndex(shipment => shipment.id === id);
-      this.shipments[intexToUpdate] = result!;
-      this.dataSource = [...this.shipments];
-      this.openSnackBar({message: 'Package successfully edited', icon: 'update'});
+      result.id = id;
+      this.shipmentService.EditShipment(result)
+      .subscribe(success =>{
+        this.getShipments();
+        this.openSnackBar({message: 'Package successfully edited', icon: 'update'});
+      }, failure => {
+        this.openSnackBar({message: failure.error.error, icon: 'error'});
+      });
     });
   }
 
