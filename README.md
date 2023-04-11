@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
 
+## Docker
+
+Run `docker build -t mchahnfrontapp .` to build image.
+
+Run `docker run -d -p <portNumber>:<portNumber> mchahnfrontapp`. This will run the container. Navigate to `http://localhost:80`. The app will automatically load.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
