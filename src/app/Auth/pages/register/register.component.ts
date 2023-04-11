@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
       this.router.navigateByUrl('/auth/login');
     }, failure => {
       console.log(failure);
-      this.openSnackBar({message: failure.error.error, icon: 'error'});
+      this.openSnackBar({message: failure.error, icon: 'error'});
     });
   }
 

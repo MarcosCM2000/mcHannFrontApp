@@ -27,7 +27,7 @@ export class ShipmentService {
   EditShipment(body: Shipment): Observable<Shipment> {
     const url = `${this._baseUrl}/edit`;
 
-    return this.http.patch<Shipment>(url, body);
+    return this.http.put<Shipment>(url, body);
   }
   DeleteShipment(body: any): Observable<boolean>{
     const url = `${this._baseUrl}/delete`;
