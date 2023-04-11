@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('/home');
     }, failure => {
       console.log(failure);
-      this.openSnackBar({message: failure.error.error, icon: 'error'});
+      this.openSnackBar({message: failure.error, icon: 'error'});
     });
 
   }
